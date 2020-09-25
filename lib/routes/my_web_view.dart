@@ -13,10 +13,10 @@ class MyWebView extends StatelessWidget {
       : super(key: key);
 
   final Set<String> _urlSet = Set();
+  WebViewController _controller;
 
   @override
   Widget build(BuildContext context) {
-    WebViewController _controller;
     // Check if the given Url is local or server
     String _initialUrl = '';
     if (selectedUrl.substring(0, 8) == "https://") {
@@ -49,11 +49,13 @@ class MyWebView extends StatelessWidget {
           } else {
             /// remote url
 	    /// Nothing to do as it is specified in initialUrl
-            //Completer <WebViewController>().complete(_controller);
+            // Completer <WebViewController>().complete(_controller);
           }
         },
+
         navigationDelegate: _interceptNavigation,
-        onPageStarted: (String url) {},
+
+        onPageStarted: (String url) async { },
         onPageFinished: (String url) {
 	  _urlSet.add(url);
         },
@@ -65,8 +67,20 @@ class MyWebView extends StatelessWidget {
   }
   /// NavigationRequest: url, isForMainFrame
   /// NavigationDecision: navigate, prevent
-  NavigationDecision _interceptNavigation(NavigationRequest request) {
+  Future<NavigationDecision> _interceptNavigation(NavigationRequest request) async {
     NavigationDecision _navDecision = NavigationDecision.navigate;
+    print ('----- local url: ${request.url} ----');
+    if (request.url.substring(0, 8) == "asset://") {
+      /// Local html file internal link "assets/bgames.html"
+      /// it won't show any thing in the webView
+      /// if it is not url, load the content from assets
+      print('----- local file: ${request.url.substring(8)} -----');
+      String _localUri = await LocalHtml(request.url.substring(8)).uri;
+      /// load local asset file after converting to url
+      _controller.loadUrl(_localUri);
+      /// Not loading the asset url
+      _navDecision = NavigationDecision.prevent;
+    } 
     return _navDecision;
   }
 }

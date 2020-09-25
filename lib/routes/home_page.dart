@@ -44,6 +44,17 @@ class HomePage extends StatelessWidget {
             },
             child: Text('WebView Remote Games'),
           ),
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => MyWebView(
+                  title: 'Local BGames.html',
+                  selectedUrl: 'bgames.html',
+                ),
+              ));
+            },
+            child: Text('Local BGames.com html'),
+          ),
         ],
       ),
     );
