@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
                 builder: (_) => MyWebView(
                   title: 'Alligator.io',
                   selectedUrl: 'https://alligator.io',
+                  //selectedUrl: 'https://www.bgames.com/',
                 ),
               ));
             },
@@ -31,6 +32,17 @@ class HomePage extends StatelessWidget {
               ));
             },
             child: Text('webView Local Page'),
+          ),
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => MyWebView(
+                  title: 'BG Games.com',
+                  selectedUrl: 'https://www.bgames.com/',
+                ),
+              ));
+            },
+            child: Text('WebView Remote Games'),
           ),
         ],
       ),
