@@ -21,6 +21,9 @@ class MyWebView extends StatelessWidget {
     String _initialUrl = '';
     if (selectedUrl.substring(0, 8) == "https://") {
       _initialUrl = selectedUrl;
+    } else {
+      _initialUrl = "file:///android_asset/flutter_assets/" + selectedUrl;
+      print ('---- localUrl: $_initialUrl ----');
     }
 
     return WillPopScope (
@@ -57,7 +60,7 @@ class MyWebView extends StatelessWidget {
 
         onPageStarted: (String url) async { },
         onPageFinished: (String url) {
-	  _urlSet.add(url);
+	        _urlSet.add(url);
         },
         onWebResourceError: (error) {},
         initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
@@ -71,7 +74,7 @@ class MyWebView extends StatelessWidget {
     NavigationDecision _navDecision = NavigationDecision.navigate;
     print ('----- local url: ${request.url} ----');
     if (request.url.substring(0, 8) == "asset://") {
-      /// Local html file internal link "assets/bgames.html"
+      /// Local html file internal link eg:"assets/bgames.html"
       /// it won't show any thing in the webView
       /// if it is not url, load the content from assets
       print('----- local file: ${request.url.substring(8)} -----');

@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => MyWebView(
                   title: 'Local WebView',
-                  selectedUrl: 'local.html',
+                  selectedUrl: 'assets/local.html',
                 ),
               ));
             },
@@ -49,11 +49,33 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => MyWebView(
                   title: 'Local BGames.html',
-                  selectedUrl: 'bgames.html',
+                  selectedUrl: 'assets/bgames.html',
                 ),
               ));
             },
             child: Text('Local BGames.com html'),
+          ),
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => MyWebView(
+                  title: 'Babylonjs Sample1',
+                  selectedUrl: 'assets/babylonjs/sample1.html',
+                ),
+              ));
+            },
+            child: Text('Babylon sample1'),
+          ),
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => MyWebView(
+                  title: 'Babylonjs Complex game',
+                  selectedUrl: 'assets/babylonjs/runner/public/index.html',
+                ),
+              ));
+            },
+            child: Text('Babylon Full Game'),
           ),
         ],
       ),

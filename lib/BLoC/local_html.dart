@@ -7,7 +7,7 @@ class LocalHtml {
   LocalHtml(this.fileName);
 
   Future<String> get uri async {
-    String fileHtmlContents = await rootBundle.loadString('assets/$fileName');
+    String fileHtmlContents = await rootBundle.loadString('$fileName');
     //print ('----- fileHtmlContents: $fileHtmlContents -----');
     String _uriString =  Uri.dataFromString (fileHtmlContents,
       mimeType:"text/html",

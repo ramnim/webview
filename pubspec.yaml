@@ -52,6 +52,18 @@ flutter:
   assets:
     - assets/local.html
     - assets/bgames.html
+    - assets/babylonjs/sample1.html
+    - assets/babylonjs/runner/public/index.html
+    - assets/babylonjs/runner/public/options.js
+    - assets/babylonjs/runner/public/assets/musics/Guitar-Mayhem.mp3
+    - assets/babylonjs/runner/public/assets/sounds/coin-c-09.wav
+    - assets/babylonjs/runner/public/assets/sounds/damage.wav
+    - assets/babylonjs/runner/public/assets/sounds/game-die.mp3
+    - assets/babylonjs/runner/public/assets/sounds/monster.wav
+    - assets/babylonjs/runner/public/assets/sounds/monster_attack.mp3
+    - assets/babylonjs/runner/public/build/app.js
+    - assets/babylonjs/runner/public/build/mix-manifest.json
+    - assets/babylonjs/runner/public/build/vendor.js
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
