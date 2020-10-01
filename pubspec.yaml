@@ -55,7 +55,7 @@ flutter:
   assets:
     - assets/local.html
     - assets/bgames.html
-    - assets/babylonjs/sample1.html
+    - assets/sample1.html
     #- assets/babylonjs/runner/public/index.html
     #- assets/babylonjs/runner/public/options.js
     #- assets/babylonjs/runner/public/assets/musics/Guitar-Mayhem.mp3

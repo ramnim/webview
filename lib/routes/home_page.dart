@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
           FlatButton(
             onPressed: () async {
               String _downloadUrl =
-                  "https://firebasestorage.googleapis.com/v0/b/gameout-68dab.appspot.com/o/webview%2Ftest.zip?alt=media&token=f9814f7e-6820-45a2-9598-a4dc884b6e4d";
+                  "https://firebasestorage.googleapis.com/v0/b/gameout-68dab.appspot.com/o/webview%2Fpublic.zip?alt=media&token=b494a893-464d-4637-82b0-ccce8baba2a3";
               /// downloading zip file will take some time,
               /// make use of FutureBuilder for actual project
               /// Files will be downloaded every time this button is clicked.
